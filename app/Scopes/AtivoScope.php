@@ -10,6 +10,6 @@ class AtivoScope implements Scope
 {
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('ativo', '=', 0);
+        $builder->where('ativo', '=', 1);
     }
 }
