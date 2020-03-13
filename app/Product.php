@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\AtivoScope;
 
 class Product extends Model
 {
@@ -19,9 +19,14 @@ class Product extends Model
     protected static function boot()
     {
         parent::boot();
-        static::addGlobalScope('isAtivo', function(Builder $bilder){
-                $bilder->where('ativo', 0);
-        });
+        /* Exemplo de como usar o scope simples
+        //static::addGlobalScope('isAtivo', function(Builder $bilder){
+        //        $bilder->where('ativo', 0);
+        //});
+
+        /* xemplode como usar o scope usando outra class */
+        static::addGlobalScope(new AtivoScope);
+
     }
 
     /*Metodos Accessors */
