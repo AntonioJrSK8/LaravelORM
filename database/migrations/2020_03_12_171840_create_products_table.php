@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreateProductsTable extends Migration
 {
@@ -18,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('title',100);
             $table->text('description');
             $table->boolean('ativo')->nullable();
+            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }
